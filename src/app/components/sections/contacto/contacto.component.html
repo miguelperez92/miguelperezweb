@@ -1,0 +1,41 @@
+<section id="contact_sec"  class="col-lg-10 col-md-11 col-sm-11 center-div contact-wrap  sec-pad-top sec-pad-bottom-sm">
+  <h6>Contacto</h6>
+  <div data-ng-controller="ContactController" class="align-center wow fadeInUp" data-wow-duration=".4s">
+    <h3><span data-ng-bind="formData.inputName|| 'Hola'"></span>, estaré encantado de conocerte.</h3>
+    <div>
+      <form data-ng-submit="submit(contactform, $event)"  name="contactform"  method="post" class="row form-horizontal" role="form">
+        <div class="form-group input--hoshi col-sm-6" data-ng-class="{ 'has-error': contactform.inputName.$invalid && submitted }">
+          <div class="input-wrap">
+            <input autocomplete="off" data-ng-model="formData.inputName" type="text" class="form-control input__field input input__field--hoshi" id="inputName" name="inputName" placeholder="Nombre" required>
+            <label class="input__label input__label input__label--hoshi input__label--hoshi-color-1 input__label--hoshi input__label--hoshi-color-1" ></label>
+          </div>
+        </div>
+        <div class="form-group  input--hoshi col-sm-6" data-ng-class="{ 'has-error': contactform.inputEmail.$invalid && submitted }">
+          <div class="input-wrap">
+            <input autocomplete="off" data-ng-model="formData.inputEmail" type="email" class="form-control input input__field input__field--hoshi" placeholder="Email" id="inputEmail" name="inputEmail" required>
+            <label class="input__label input__label--hoshi input__label--hoshi-color-1"></label>
+          </div>
+        </div>
+        <div class="form-group  input--hoshi col-sm-12" data-ng-class="{ 'has-error': contactform.inputMessage.$invalid && submitted }">
+          <div class="input-wrap">
+            <textarea data-ng-model="formData.inputMessage" class="form-control input input__field input__field--hoshi" rows="4" id="inputMessage" name="inputMessage" placeholder="Mensaje" required></textarea>
+            <label class="input__label input__label--hoshi input__label--hoshi-color-1"></label>
+          </div>
+        </div>
+        <div class="form-group col-sm-12">
+          <div class="align-center">
+            <button type="submit" class="btn btn-default" data-ng-disabled="submitButtonDisabled">
+            <span class="mask"></span>
+            <span>Enviar mensaje</span>
+            </button>
+          </div>
+        </div>
+      </form>
+      <p data-ng-class="result">{{ resultMessage }}</p>
+    </div>
+  </div>
+
+  <div class="email-direct">
+    <p class="wow fadeInRight" data-wow-duration=".4s">O simplemente escríbeme a <a href="mailto:info.miguelperez@gmail.com">info.miguelperez@gmail.com</a></p>
+  </div>
+</section>
