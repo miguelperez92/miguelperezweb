@@ -1,4 +1,4 @@
-<section id="exp_sec"  class="col-lg-10 col-md-11 col-sm-11 center-div experience-wrap  sec-pad">
+<section *ngIf="cargada" id="exp_sec"  class="col-lg-10 col-md-11 col-sm-11 center-div experience-wrap  sec-pad">
   <h6>Experiencia profesional</h6>
   <div class="exp-timeline-wrap">
     <div *ngFor="let experiencia of experiencias" class="row exp-timeline timeline-active">

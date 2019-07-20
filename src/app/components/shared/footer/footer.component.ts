@@ -12,12 +12,15 @@ export class FooterComponent implements OnInit {
   facebook:string;
   linkedin:string;
   autor:string;
+  cargada = false;
+
   constructor(public _servicio:InfoPaginaService) {
 
     this._servicio.cargarData().then( ()=>{
       this.facebook = this._servicio.data.facebook;
       this.linkedin = this._servicio.data.linkedin;
       this.autor = this._servicio.data.autor;
+      this.cargada = this._servicio.cargada;
     });
 
 

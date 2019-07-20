@@ -9,11 +9,13 @@ import { InfoPaginaService } from '../../../services/info-pagina.service';
 export class ServiciosComponent implements OnInit {
 
   servicios:any[];
+  cargada = false;
 
   constructor(public _servicio:InfoPaginaService) {
 
     this._servicio.cargarData().then( ()=>{
       this.servicios = this._servicio.data.servicios;
+      this.cargada = this._servicio.cargada;
     });
 
    }

@@ -9,10 +9,13 @@ import { InfoPaginaService } from '../../../services/info-pagina.service';
 export class SkillsComponent implements OnInit {
 
   skills:any[];
+  cargada = false;
+
   constructor(public _servicio:InfoPaginaService) {
 
     this._servicio.cargarData().then( ()=>{
       this.skills = this._servicio.data.skills;
+      this.cargada = this._servicio.cargada;
     });
 
    }

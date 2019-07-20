@@ -11,12 +11,14 @@ export class HeaderComponent implements OnInit {
 
   titulo:string;
   textoBoton:string;
+  cargada = false;
 
   constructor(public _servicio:InfoPaginaService) {
 
     this._servicio.cargarData().then( ()=>{
       this.titulo = this._servicio.data.titulo;
       this.textoBoton = this._servicio.data.textoBoton;
+      this.cargada = this._servicio.cargada;
     });
 
    }

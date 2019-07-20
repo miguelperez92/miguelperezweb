@@ -11,6 +11,7 @@ export class ContactoComponent implements OnInit {
   email:string;
   texto:string;
   textoDefecto = "Estamos en contacto";
+  cargada = false;
 
   constructor(public _servicio:InfoPaginaService) {
 
@@ -18,6 +19,7 @@ export class ContactoComponent implements OnInit {
 
     this._servicio.cargarData().then( ()=>{
       this.email = this._servicio.data.email;
+      this.cargada = this._servicio.cargada;
     });
 
    }

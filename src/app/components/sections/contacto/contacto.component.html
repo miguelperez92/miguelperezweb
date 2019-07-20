@@ -1,4 +1,4 @@
-<section id="contact_sec"  class="col-lg-10 col-md-11 col-sm-11 center-div contact-wrap  sec-pad-top sec-pad-bottom-sm">
+<section *ngIf="cargada" id="contact_sec"  class="col-lg-10 col-md-11 col-sm-11 center-div contact-wrap  sec-pad-top sec-pad-bottom-sm">
   <h6>Contacto</h6>
   <div data-ng-controller="ContactController" class="align-center wow fadeInUp" data-wow-duration=".4s">
     <h3>{{ texto }}</h3>
