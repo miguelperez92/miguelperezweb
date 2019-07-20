@@ -6,7 +6,7 @@
       <form data-ng-submit="submit(contactform, $event)"  name="contactform"  method="post" class="row form-horizontal" role="form">
         <div class="form-group input--hoshi col-sm-6" data-ng-class="{ 'has-error': contactform.inputName.$invalid && submitted }">
           <div class="input-wrap">
-            <input #nombre (change)="setTexto(nombre.value)" autocomplete="off" data-ng-model="formData.inputName" type="text" class="form-control input__field input input__field--hoshi" id="inputName" name="inputName" placeholder="Nombre" required>
+            <input #nombre (input)="setTexto(nombre.value)" autocomplete="off" data-ng-model="formData.inputName" type="text" class="form-control input__field input input__field--hoshi" id="inputName" name="inputName" placeholder="Nombre" required>
             <label class="input__label input__label input__label--hoshi input__label--hoshi-color-1 input__label--hoshi input__label--hoshi-color-1" ></label>
           </div>
         </div>
