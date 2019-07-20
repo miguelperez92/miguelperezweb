@@ -8,7 +8,17 @@ import { InfoPaginaService } from '../../../services/info-pagina.service';
 })
 export class FormacionComponent implements OnInit {
 
-  constructor(public _servicio:InfoPaginaService) { }
+  formaciones:any[];
+  cargada = false;
+
+  constructor(public _servicio:InfoPaginaService) {
+
+    this._servicio.cargarData().then( ()=>{
+      this.formaciones = this._servicio.data.formaciones;
+      this.cargada = this._servicio.cargada;
+    });
+
+   }
 
   ngOnInit() {
   }

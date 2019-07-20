@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InfoPaginaService } from '../../../services/info-pagina.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExperienciaComponent implements OnInit {
 
-  constructor() { }
+  experiencias:any[];
+
+  constructor(public _servicio:InfoPaginaService) {
+
+    this._servicio.cargarData().then( ()=>{
+      this.experiencias = this._servicio.data.experiencias;
+    });
+
+   }
 
   ngOnInit() {
   }

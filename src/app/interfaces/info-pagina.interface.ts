@@ -6,13 +6,12 @@ export interface InfoPagina{
   textoBoton?:string,
   facebook?: string;
   linkedin?: string;
-  pagina_softtek?: string;
-  pagina_bbva?: string;
   skills?: Skill[];
   formaciones?: Formacion[];
   experiencias?: Experiencia[];
   clientes?: Cliente[];
   secciones_nav?:any[];
+  servicios?:any[];
 }
 
 export interface Skill {
@@ -21,13 +20,13 @@ export interface Skill {
 }
 
 export interface Formacion {
-  rango?: string;
+  duracion?: string;
   lugar?: string;
   titulacion?: string;
 }
 
 export interface Experiencia{
-  rango?: string;
+  duracion?: string;
   titulo?: string;
   subtitulo?: string;
   descripcion?: string;

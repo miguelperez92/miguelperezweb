@@ -5,8 +5,6 @@
   "textoBoton" : "Contáctame",
   "facebook" : "https://www.facebook.com/Miguel106",
   "linkedin" : "https://www.linkedin.com/in/miguelperez-92",
-  "pagina_softtek" : "https://www.softtek.com/",
-  "pagina_bbva" : "https://www.bbva.es/",
   "skills" : [
     {
       "nombre" : "JAVA",
@@ -71,42 +69,34 @@
     {
       "nombre" : "SCRUM DEVELOPER",
       "valor" : "99"
-    },
-    {
-      "nombre" : "NUEVO",
-      "valor" : "100"
-    },
-    {
-      "nombre" : "HTML 5",
-      "valor" : "90"
     }
   ],
   "formaciones" : [
     {
-      "rango" : "2014-2016",
+      "duracion" : "2014-2016",
       "lugar" : "Universidad San Pablo CEU, Madrid",
       "titulacion" : "Grado Superior De Desarrollo De Aplicaciones Multiplataforma"
     },
     {
-      "rango" : "2010-2014",
+      "duracion" : "2010-2014",
       "lugar" : "Universidad De Jaén",
       "titulacion" : "Grado En Ciencias Ambientales"
     },
     {
-      "rango" : "2008-2010",
+      "duracion" : "2008-2010",
       "lugar" : "Colegio San Antonio De Padua, Martos (Jaén)",
       "titulacion" : "Bachillerato De Ciencias De La Salud"
     }
   ],
   "experiencias" : [
     {
-      "rango" : "JUNIO 2016 - ACTUALIDAD",
+      "duracion" : "JUNIO 2016 - ACTUALIDAD",
       "titulo" : "Desarrollador Full Stack",
       "subtitulo" : "Softtek, Cliente BBVA, Madrid",
       "descripcion" :  "Una vez finalicé el periodo de prácticas, me incorporé al cliente BBVA, donde trabajo actualmente.<br>Hasta la fecha he estado en un proyecto de soporte para latinoamérica (LATAM) en la aplicación de banca para empresas BBVA Net Cash. Posteriormente me incorporé a un proyecto de metodología agile, donde realicé evolutivos sobre la agenda de contactos y las transferencias individuales de BBVA Net Cash España. Tras terminar ese proyecto pasé a un proyecto para la aplicación BBVA Net Cash Global.<br>Actualmente me encuentro trabajando en un proyecto agile en el que se están desarrollando las bases en el backend para la futura aplicación que, si todo va bien, sustituirá a la actual BBVA Net Cash."
     },
     {
-      "rango" : "ABRIL 2016 — JUNIO 2016",
+      "duracion" : "ABRIL 2016 — JUNIO 2016",
       "titulo" : "Estudiante En Prácticas",
       "subtitulo" : "Softtek, Madrid",
       "descripcion" : "Tras la finalización del Grado Superior en Desarrollo de Apliaciones Multiplataforma, comencé las prácticas en la consultora de software multinacional Softtek. Allí desarrollé junto a otros nueve compañeros una aplicación web de administración de usuarios con las tecnologías de Spring Java, Html, jQuery, css y todo ello a través la metodología Agile de Scrum."
@@ -153,6 +143,23 @@
       "nombre" : "Contacto",
       "url" : "#contact_sec"
     }
+  ],
+  "servicios" : [
+    {
+      "nombre" : "ANÁLISIS",
+      "icono" : "pe-7s-graph3"
+    },
+    {
+      "nombre" : "PROGRAMACIÓN",
+      "icono" : "pe-7s-browser"
+    },
+    {
+      "nombre" : "TESTING",
+      "icono" : "pe-7s-tools"
+    },
+    {
+      "nombre" : "DOCUMENTACIÓN",
+      "icono" : "pe-7s-note2"
+    }
   ]
-
 }

@@ -1,6 +1,6 @@
-<section id="client_sec"  class="col-lg-10 col-md-11 col-sm-11 center-div client-wrap  sec-pad wow bounceIn" data-wow-duration=".4s">
+<section *ngIf="cargada" id="client_sec"  class="col-lg-10 col-md-11 col-sm-11 center-div client-wrap  sec-pad wow bounceIn" data-wow-duration=".4s">
   <h6>Empresas y clientes para los que he trabajado</h6>
-  <div *ngIf="cargada" class="client-carousel">
+  <div class="client-carousel">
     <a *ngFor="let cliente of clientes" [href]="cliente.url" target="_blank"><img [src]="cliente.img" [alt]="cliente.nombre"></a>
   </div>
 </section>

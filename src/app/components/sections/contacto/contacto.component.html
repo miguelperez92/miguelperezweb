@@ -1,12 +1,12 @@
 <section id="contact_sec"  class="col-lg-10 col-md-11 col-sm-11 center-div contact-wrap  sec-pad-top sec-pad-bottom-sm">
   <h6>Contacto</h6>
   <div data-ng-controller="ContactController" class="align-center wow fadeInUp" data-wow-duration=".4s">
-    <h3><span data-ng-bind="formData.inputName|| 'Hola'"></span>, estaré encantado de conocerte.</h3>
+    <h3>{{ texto }}</h3>
     <div>
       <form data-ng-submit="submit(contactform, $event)"  name="contactform"  method="post" class="row form-horizontal" role="form">
         <div class="form-group input--hoshi col-sm-6" data-ng-class="{ 'has-error': contactform.inputName.$invalid && submitted }">
           <div class="input-wrap">
-            <input autocomplete="off" data-ng-model="formData.inputName" type="text" class="form-control input__field input input__field--hoshi" id="inputName" name="inputName" placeholder="Nombre" required>
+            <input #nombre (change)="setTexto(nombre.value)" autocomplete="off" data-ng-model="formData.inputName" type="text" class="form-control input__field input input__field--hoshi" id="inputName" name="inputName" placeholder="Nombre" required>
             <label class="input__label input__label input__label--hoshi input__label--hoshi-color-1 input__label--hoshi input__label--hoshi-color-1" ></label>
           </div>
         </div>
@@ -36,7 +36,7 @@
   </div>
 
   <div class="email-direct">
-    <p class="wow fadeInRight" data-wow-duration=".4s">O simplemente escríbeme a <a href="mailto:info.miguelperez@gmail.com">info.miguelperez@gmail.com</a></p>
+    <p class="wow fadeInRight" data-wow-duration=".4s">O simplemente escríbeme a <a href="mailto:{{ email }}" target="_blank">{{ email }}</a></p>
   </div>
 </section>
 
