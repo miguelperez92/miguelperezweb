@@ -5,12 +5,12 @@
         <!--Social Icons-->
         <ul class="social-icons float-right">
           <li>
-            <a href="https://www.facebook.com/Miguel106" target="_blank" class="social-icon">
+            <a [href]="facebook" target="_blank" class="social-icon">
               <span class="fa" data-hover="&#xf09a;">&#xf09a;</span>
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/miguelperez-92" target="_blank" class="social-icon">
+            <a [href]="linkedin" target="_blank" class="social-icon">
               <span class="fa" data-hover="&#xf08c;">&#xf08c;</span>
             </a>
           </li>
@@ -25,7 +25,7 @@
         </a>
       </div>
       <div class="copywrite-wrap text-right float-right">
-        <p class="copywrite"><b>Miguel Pérez Ortega</b> - 2019</p>
+        <p class="copywrite"><b>{{ autor }}</b> - {{ anio }}</p>
       </div>
     </div>
   </div>

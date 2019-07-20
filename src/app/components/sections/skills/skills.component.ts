@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InfoPaginaService } from '../../../services/info-pagina.service';
 
 @Component({
   selector: 'app-skills',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkillsComponent implements OnInit {
 
-  constructor() { }
+  skills:any[];
+  constructor(public _servicio:InfoPaginaService) {
+
+    this._servicio.cargarData().then( ()=>{
+      this.skills = this._servicio.data.skills;
+    });
+
+   }
 
   ngOnInit() {
+
   }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { InfoPaginaService } from '../../../services/info-pagina.service';
+
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  titulo:string;
+  textoBoton:string;
+
+  constructor(public _servicio:InfoPaginaService) {
+
+    this._servicio.cargarData().then( ()=>{
+      this.titulo = this._servicio.data.titulo;
+      this.textoBoton = this._servicio.data.textoBoton;
+    });
+
+   }
 
   ngOnInit() {
+
   }
 
 }

@@ -891,7 +891,8 @@ a.goto-social, a.goto-social:hover {
 
 /********Client Sec CSS********/
 .client-wrap .owl-carousel .owl-item img {
-  width: 100%; }
+  width: 100%;
+ }
 
 /********Achivement Sec CSS********/
 .achivement-list-wrap li ul {

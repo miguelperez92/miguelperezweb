@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InfoPaginaService } from '../../../services/info-pagina.service';
 
 @Component({
   selector: 'app-clientes',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientesComponent implements OnInit {
 
-  constructor() { }
+clientes:any[];
+cargada = false;
+
+  constructor(public _servicio:InfoPaginaService) {
+    this._servicio.cargarData().then( ()=>{
+      this.clientes = this._servicio.data.clientes;
+      this.cargada = this._servicio.cargada;
+    });
+  }
 
   ngOnInit() {
   }

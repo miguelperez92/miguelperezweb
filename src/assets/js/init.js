@@ -24,6 +24,8 @@
 
  "use strict";
 
+ var wow;
+
 /*****Ready function start*****/
 $(document).ready(function(){
    /*eric function init start*/
@@ -38,7 +40,7 @@ $(document).ready(function(){
 
 /*****Load function start*****/
 $(window).load(function(){
-
+wow.init();
 	/*Page load animaion start*/
 	setTimeout(function() {
 		$("#main_content").addClass("content-block-animation");
@@ -56,24 +58,6 @@ $(window).load(function(){
 	/*masonryPortfolio function init start*/
 	masonryPortfolio();
 	/*masonryPortfolio function init end*/
-});
-/*****Load function* end*****/
-
-/*****Scroll function start*****/
-$(window).scroll(function() {
-	var navTop = $('header');
-
-	/*Header animaion onscroll*/
-	var scroll = $(window).scrollTop();
-	if (scroll >= 150) {
-		$(navTop).addClass("fixed");
-	} else {
-		 $(navTop).removeClass("fixed");
-	}
-	/*Header animaion onscroll*/
-
-});
-/*****Scroll function start*****/
 
 /***** Full height function start *****/
 var setHeight = function () {
@@ -97,36 +81,6 @@ var fixSpy = function() {
 }
 /***** Scrollspy function end *****/
 
-/***** Timeline Function start *****/
-var timelineheightCal = function() {
-	var container = $('.exp-timeline-wrap');
-	var expTimeline = $('.exp-timeline');
-
-	for(var i = 0; i < expTimeline.length; i++){
-		$(expTimeline[i]).hover(
-			function() {
-				for(var i = 0; i < expTimeline.length; i++){
-					$(expTimeline[i]).addClass( "timeline-inactive" ).removeClass( "timeline-active" );
-				}
-				$(this).addClass( "timeline-active" );
-			}, function() {
-				for(var i = 0; i < expTimeline.length; i++){
-					$(expTimeline[i]).removeClass( "timeline-active" ).removeClass( "timeline-inactive" );
-				}
-				$(expTimeline).first().addClass( "timeline-active" );
-			}
-		);
-		$(expTimeline[i]).attr('style', '').find('.timeline-st').attr('style', '');
-
-		var height = $(expTimeline[i]).height();
-		var newHeight = 0;
-		newHeight = height + 43;
-
-		$(expTimeline[i]).css({ height : newHeight}).find('.timeline-st').css({ height : newHeight - 15});
-	}
-	$(expTimeline).last().css({ height : newHeight - 43}).find('.timeline-st').css({ height : newHeight - 58});
-};
-/***** Timeline Function end *****/
 
 /***** Resize function start *****/
 var resizeTimer;
@@ -169,116 +123,6 @@ $(window).on("resize", function () {
 }).resize();
 /***** Resize function end *****/
 
-/***** Eric function start *****/
-var eric = function (){
-
-	/*Typed js start*/
-	$("#typed").typed({
-		strings: ["^2100&nbsp; <br/>Soy Miguel Pérez.<br/>Programador Full Stack."],
-		typeSpeed: 30,
-		backDelay: 750,
-		loop: false,
-		cursorChar: "|",
-		contentType: 'html', // or text
-		// defaults to false for infinite loop
-		loopCount: false
-	});
-	/*Typed js end*/
-
-	/*Client carousel start*/
-	$('#client_sec .client-carousel').owlCarousel({
-		loop:true,
-		margin:15,
-		nav:false,
-		dots:false,
-		responsive:{
-			0:{
-				items:1
-			},
-			200:{
-				items:2
-			},
-			400:{
-				items:3
-			},
-			600:{
-				items:4
-			},
-			1200:{
-				items:3
-			},
-			1300:{
-				items:4
-			},
-			1600:{
-				items:5
-			}
-		}
-	});
-	/*Client carousel end*/
-
-	/*Header animation start*/
-	var scroll = $(window).scrollTop();
-	var header = $("header");
-	if (scroll >= 150)
-		$(header).addClass("fixed");
-		else
-			$(header).removeClass("fixed");
-	/*Header animation end*/
-
-	/*Progressbar animation start*/
-	var progressBar = $('.progress-bar-graph div');
-	for(var i = 0; i < progressBar.length; i++){
-		$(progressBar[i]).appear(function(){
-			var percent = $(this).find('span').attr('data-width');
-			var $endNum = parseInt($(this).find('.bar-wrap strong i').text(),10);
-
-			var $that = $(this);
-			$(this).find('span').animate({
-				'width' : percent + '%'
-			},1600, function(){
-			});
-			$(this).find('.bar-wrap strong').animate({
-				'opacity' : 1
-			},1400);
-			$(this).find('.bar-wrap strong i').countTo({
-				from: 0,
-				to: $endNum,
-				speed: 1200,
-				refreshInterval: 30,
-				onComplete: function(){}
-			});
-			if(percent == '100'){
-				$that.find('bar-wrap strong').addClass('full');
-			}
-		});
-	}
-	/*Progressbar animation end*/
-
-	/*Header script start*/
-	var navbarList = $('nav.navbar li');
-	for(var i = 0; i < navbarList.length; i++){
-		var text = $(navbarList[i]).find('span').text();
-		$(navbarList[i]).find('a').append('<span>'+text+'</span>');
-	}
-	/*Header script end*/
-
-	/*Wow animation start*/
-	var wow = new WOW(
-	{
-	boxClass: 'wow', // animated element css class (default is wow)
-	animateClass: 'animated', // animation css class (default is animated)
-	offset: 0, // distance to the element when triggering the animation (default is 0)
-	mobile: false, // trigger animations on mobile devices (default is true)
-	live: true // act on asynchronously loaded content (default is true)
-	}
-	);
-
-	wow.init();
-	/*Wow animation end*/
-}
-/***** Eric function end *****/
-
 /***** Click function start *****/
 $(document).on('click','.navbar-collapse.in a',function(e) {
       $('.navbar-collapse.in').collapse('hide');
@@ -286,8 +130,23 @@ $(document).on('click','.navbar-collapse.in a',function(e) {
 });
 /***** Click function end *****/
 
+/***** Placehoder ie9 start*****/
+$('input[type=text], textarea').placeholder();
+/***** Placehoder ie9 end*****/
+
+/***** LightGallery init start*****/
+$('#portfolio').lightGallery({  showThumbByDefault: false,hash: false});
+/***** LightGallery init end*****/
+
+timelineheightCal();
+masonryPortfolio();
+eric();
+
+});
+/*****Load function* end*****/
+
 /***** MasonryPortfolio function start *****/
-var masonryPortfolio = function() {
+function masonryPortfolio() {
 
 		if( $('#portfolio-wrap').length > 0 ){
 
@@ -555,10 +414,160 @@ var masonryPortfolio = function() {
 	}
 /***** MasonryPortfolio function End *****/
 
-/***** Placehoder ie9 start*****/
-$('input[type=text], textarea').placeholder();
-/***** Placehoder ie9 end*****/
+/***** Eric function start *****/
+function eric(){
 
-/***** LightGallery init start*****/
-$('#portfolio').lightGallery({  showThumbByDefault: false,hash: false});
-/***** LightGallery init end*****/
+	/*Typed js start*/
+	$("#typed").typed({
+		strings: ["^2100&nbsp; <br/>Soy Miguel Pérez.<br/>Programador Full Stack."],
+		typeSpeed: 30,
+		backDelay: 750,
+		loop: false,
+		cursorChar: "|",
+		contentType: 'html', // or text
+		// defaults to false for infinite loop
+		loopCount: false
+	});
+	/*Typed js end*/
+
+	/*Client carousel start*/
+	$('#client_sec .client-carousel').owlCarousel({
+		loop:true,
+		margin:15,
+		nav:false,
+		dots:false,
+		responsive:{
+			0:{
+				items:1
+			},
+			200:{
+				items:2
+			},
+			400:{
+				items:3
+			},
+			600:{
+				items:4
+			},
+			1200:{
+				items:3
+			},
+			1300:{
+				items:4
+			},
+			1600:{
+				items:5
+			}
+		}
+	});
+	/*Client carousel end*/
+
+	/*Header animation start*/
+	var scroll = $(window).scrollTop();
+	var header = $("header");
+	if (scroll >= 150)
+		$(header).addClass("fixed");
+		else
+			$(header).removeClass("fixed");
+	/*Header animation end*/
+
+	/*Progressbar animation start*/
+	var progressBar = $('.progress-bar-graph div');
+	for(var i = 0; i < progressBar.length; i++){
+		$(progressBar[i]).appear(function(){
+      var percent = $(this).find('i');
+        percent = percent[0].textContent;
+			var $endNum = parseInt($(this).find('.bar-wrap strong i').text(),10);
+
+			var $that = $(this);
+			$(this).find('span').animate({
+				'width' : percent + '%'
+			},1600, function(){
+			});
+			$(this).find('.bar-wrap strong').animate({
+				'opacity' : 1
+			},1400);
+			$(this).find('.bar-wrap strong i').countTo({
+				from: 0,
+				to: $endNum,
+				speed: 1200,
+				refreshInterval: 30,
+				onComplete: function(){}
+			});
+			if(percent == '100'){
+				$that.find('bar-wrap strong').addClass('full');
+			}
+		});
+	}
+	/*Progressbar animation end*/
+
+	/*Header script start*/
+	var navbarList = $('nav.navbar li');
+	for(var i = 0; i < navbarList.length; i++){
+		var text = $(navbarList[i]).find('span').text();
+		$(navbarList[i]).find('a').append('<span>'+text+'</span>');
+	}
+	/*Header script end*/
+
+	/*Wow animation start*/
+	wow = new WOW(
+	{
+	boxClass: 'wow', // animated element css class (default is wow)
+	animateClass: 'animated', // animation css class (default is animated)
+	offset: 0, // distance to the element when triggering the animation (default is 0)
+	mobile: false, // trigger animations on mobile devices (default is true)
+	live: true // act on asynchronously loaded content (default is true)
+	}
+	);
+
+
+	/*Wow animation end*/
+}
+/***** Eric function end *****/
+
+/***** Timeline Function start *****/
+function timelineheightCal() {
+  var container = $('.exp-timeline-wrap');
+  var expTimeline = $('.exp-timeline');
+
+  for(var i = 0; i < expTimeline.length; i++){
+    $(expTimeline[i]).hover(
+      function() {
+        for(var i = 0; i < expTimeline.length; i++){
+          $(expTimeline[i]).addClass( "timeline-inactive" ).removeClass( "timeline-active" );
+        }
+        $(this).addClass( "timeline-active" );
+      }, function() {
+        for(var i = 0; i < expTimeline.length; i++){
+          $(expTimeline[i]).removeClass( "timeline-active" ).removeClass( "timeline-inactive" );
+        }
+        $(expTimeline).first().addClass( "timeline-active" );
+      }
+    );
+    $(expTimeline[i]).attr('style', '').find('.timeline-st').attr('style', '');
+
+    var height = $(expTimeline[i]).height();
+    var newHeight = 0;
+    newHeight = height + 43;
+
+    $(expTimeline[i]).css({ height : newHeight}).find('.timeline-st').css({ height : newHeight - 15});
+  }
+  $(expTimeline).last().css({ height : newHeight - 43}).find('.timeline-st').css({ height : newHeight - 58});
+};
+/***** Timeline Function end *****/
+
+/*****Scroll function start*****/
+$(window).scroll(function() {
+	var navTop = $('header');
+
+	/*Header animaion onscroll*/
+	var scroll = $(window).scrollTop();
+	if (scroll >= 150) {
+		$(navTop).addClass("fixed");
+	} else {
+		 $(navTop).removeClass("fixed");
+	}
+	/*Header animaion onscroll*/
+
+});
+/*****Scroll function start*****/

@@ -1,0 +1,158 @@
+{
+  "titulo" : "Miguel Pérez - Web personal",
+  "autor" : "Miguel Pérez Ortega",
+  "email" : "info.miguelperez@gmail.com",
+  "textoBoton" : "Contáctame",
+  "facebook" : "https://www.facebook.com/Miguel106",
+  "linkedin" : "https://www.linkedin.com/in/miguelperez-92",
+  "pagina_softtek" : "https://www.softtek.com/",
+  "pagina_bbva" : "https://www.bbva.es/",
+  "skills" : [
+    {
+      "nombre" : "JAVA",
+      "valor" : "95"
+    },
+    {
+      "nombre" : "SPRING MVC & WEBFLOW",
+      "valor" : "85"
+    },
+    {
+      "nombre" : "ANGULAR 8",
+      "valor" : "74"
+    },
+    {
+      "nombre" : "IONIC 4",
+      "valor" : "80"
+    },
+    {
+      "nombre" : "HTML 5",
+      "valor" : "90"
+    },
+    {
+      "nombre" : "CSS 3",
+      "valor" : "70"
+    },
+    {
+      "nombre" : "JAVASCRIPT",
+      "valor" : "94"
+    },
+    {
+      "nombre" : "ANGULAR JS",
+      "valor" : "84"
+    },
+    {
+      "nombre" : "BOOTSTRAP 4",
+      "valor" : "70"
+    },
+    {
+      "nombre" : "JQUERY",
+      "valor" : "95"
+    },
+    {
+      "nombre" : "SQL",
+      "valor" : "85"
+    },
+    {
+      "nombre" : "PHP",
+      "valor" : "65"
+    },
+    {
+      "nombre" : "JUNIT & MOCKITO",
+      "valor" : "83"
+    },
+    {
+      "nombre" : "GIT",
+      "valor" : "94"
+    },
+    {
+      "nombre" : "SUBVERSION",
+      "valor" : "95"
+    },
+    {
+      "nombre" : "SCRUM DEVELOPER",
+      "valor" : "99"
+    },
+    {
+      "nombre" : "NUEVO",
+      "valor" : "100"
+    },
+    {
+      "nombre" : "HTML 5",
+      "valor" : "90"
+    }
+  ],
+  "formaciones" : [
+    {
+      "rango" : "2014-2016",
+      "lugar" : "Universidad San Pablo CEU, Madrid",
+      "titulacion" : "Grado Superior De Desarrollo De Aplicaciones Multiplataforma"
+    },
+    {
+      "rango" : "2010-2014",
+      "lugar" : "Universidad De Jaén",
+      "titulacion" : "Grado En Ciencias Ambientales"
+    },
+    {
+      "rango" : "2008-2010",
+      "lugar" : "Colegio San Antonio De Padua, Martos (Jaén)",
+      "titulacion" : "Bachillerato De Ciencias De La Salud"
+    }
+  ],
+  "experiencias" : [
+    {
+      "rango" : "JUNIO 2016 - ACTUALIDAD",
+      "titulo" : "Desarrollador Full Stack",
+      "subtitulo" : "Softtek, Cliente BBVA, Madrid",
+      "descripcion" :  "Una vez finalicé el periodo de prácticas, me incorporé al cliente BBVA, donde trabajo actualmente.<br>Hasta la fecha he estado en un proyecto de soporte para latinoamérica (LATAM) en la aplicación de banca para empresas BBVA Net Cash. Posteriormente me incorporé a un proyecto de metodología agile, donde realicé evolutivos sobre la agenda de contactos y las transferencias individuales de BBVA Net Cash España. Tras terminar ese proyecto pasé a un proyecto para la aplicación BBVA Net Cash Global.<br>Actualmente me encuentro trabajando en un proyecto agile en el que se están desarrollando las bases en el backend para la futura aplicación que, si todo va bien, sustituirá a la actual BBVA Net Cash."
+    },
+    {
+      "rango" : "ABRIL 2016 — JUNIO 2016",
+      "titulo" : "Estudiante En Prácticas",
+      "subtitulo" : "Softtek, Madrid",
+      "descripcion" : "Tras la finalización del Grado Superior en Desarrollo de Apliaciones Multiplataforma, comencé las prácticas en la consultora de software multinacional Softtek. Allí desarrollé junto a otros nueve compañeros una aplicación web de administración de usuarios con las tecnologías de Spring Java, Html, jQuery, css y todo ello a través la metodología Agile de Scrum."
+    }
+  ],
+  "clientes" : [
+    {
+      "nombre" : "Softtek",
+      "img" : "assets/img/softtek.png",
+      "url" : "https://www.softtek.com/"
+    },
+    {
+      "nombre" : "BBVA",
+      "img" : "assets/img/bbva.png",
+      "url" : "https://www.bbva.es/"
+    }
+  ],
+  "secciones_nav" : [
+    {
+      "nombre" : "Inicio",
+      "url" : "#body"
+    },
+    {
+      "nombre" : "Servicios",
+      "url" : "#services_sec"
+    },
+    {
+      "nombre" : "Habilidades",
+      "url" : "#skill_sec"
+    },
+    {
+      "nombre" : "Formación",
+      "url" : "#edu_sec"
+    },
+    {
+      "nombre" : "Experiencia",
+      "url" : "#exp_sec"
+    },
+    {
+      "nombre" : "Clientes",
+      "url" : "#client_sec"
+    },
+    {
+      "nombre" : "Contacto",
+      "url" : "#contact_sec"
+    }
+  ]
+
+}
