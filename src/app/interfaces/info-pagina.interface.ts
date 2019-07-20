@@ -6,6 +6,7 @@ export interface InfoPagina{
   textoBoton?:string,
   facebook?: string;
   linkedin?: string;
+  github?: string;
   skills?: Skill[];
   formaciones?: Formacion[];
   experiencias?: Experiencia[];

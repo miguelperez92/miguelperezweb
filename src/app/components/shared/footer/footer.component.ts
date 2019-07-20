@@ -11,6 +11,7 @@ export class FooterComponent implements OnInit {
   anio:number = new Date().getFullYear();
   facebook:string;
   linkedin:string;
+  github:string;
   autor:string;
   cargada = false;
 
@@ -19,6 +20,7 @@ export class FooterComponent implements OnInit {
     this._servicio.cargarData().then( ()=>{
       this.facebook = this._servicio.data.facebook;
       this.linkedin = this._servicio.data.linkedin;
+      this.github = this._servicio.data.github;
       this.autor = this._servicio.data.autor;
       this.cargada = this._servicio.cargada;
     });
