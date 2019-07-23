@@ -12,7 +12,7 @@ export class MailService {
   enviarMail(form:Formulario){
 
     return new Promise( (resolve, reject)=>{
-      this._http.post('https://miguelperezweb.herokuapp.com/contactar', JSON.stringify(form), {observe: 'response'})
+      this._http.post('https://miguelperezweb.herokuapp.com/contactar', form, {observe: 'response'})
       .subscribe(response => {
         if(response != null && response.status == 200){
           resolve();
