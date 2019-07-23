@@ -1,42 +1,93 @@
 <section *ngIf="cargada" id="contact_sec"  class="col-lg-10 col-md-11 col-sm-11 center-div contact-wrap  sec-pad-top sec-pad-bottom-sm">
   <h6>Contacto</h6>
-  <div data-ng-controller="ContactController" class="align-center wow fadeInUp" data-wow-duration=".4s">
+
+  <div *ngIf="resultado == 1 && mostrarAlert" class="alert alert-success" role="alert">
+    Mensaje enviado correctamente
+    <button type="button" class="close" (click)="ocultarAlert()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div *ngIf="resultado == 0  && mostrarAlert" class="alert alert-danger" role="alert">
+    No se ha podido enviar el mensaje
+    <button type="button" class="close" (click)="ocultarAlert()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="align-center wow fadeInUp" data-wow-duration=".4s">
     <h3>{{ texto }}</h3>
     <div>
-      <form data-ng-submit="submit(contactform, $event)"  name="contactform"  method="post" class="row form-horizontal" role="form">
-        <div class="form-group input--hoshi col-sm-6" data-ng-class="{ 'has-error': contactform.inputName.$invalid && submitted }">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="form-group input--hoshi col-sm-6" [ngClass]="{ 'is-invalid': submitted && f.nombre?.errors }">
           <div class="input-wrap">
-            <input #nombre (input)="setTexto(nombre.value)" autocomplete="off" data-ng-model="formData.inputName" type="text" class="form-control input__field input input__field--hoshi" id="inputName" name="inputName" placeholder="Nombre" required>
-            <label class="input__label input__label input__label--hoshi input__label--hoshi-color-1 input__label--hoshi input__label--hoshi-color-1" ></label>
+            <input formControlName="nombre" #nombre (input)="setTexto(nombre.value)" autocomplete="off" type="text" class="form-control input__field input input__field--hoshi" id="nombre" name="nombre" placeholder="Nombre" maxlength="30" required>
+            <label class="input__label input__label--hoshi input__label--hoshi-color-1 input__label--hoshi input__label--hoshi-color-1" ></label>
+          </div>
+          <div *ngIf="submitted && f.nombre?.errors" class="invalid-feedback">
+              <div *ngIf="f.nombre?.errors.required">El nombre es obligatorio</div>
           </div>
         </div>
-        <div class="form-group  input--hoshi col-sm-6" data-ng-class="{ 'has-error': contactform.inputEmail.$invalid && submitted }">
+
+        <div class="form-group  input--hoshi col-sm-6" [ngClass]="{ 'is-invalid': submitted && f.email?.errors }">
           <div class="input-wrap">
-            <input autocomplete="off" data-ng-model="formData.inputEmail" type="email" class="form-control input input__field input__field--hoshi" placeholder="Email" id="inputEmail" name="inputEmail" required>
+            <input formControlName="email" autocomplete="off" type="email" class=" form-control input input__field input__field--hoshi" placeholder="Email" name="email" required>
             <label class="input__label input__label--hoshi input__label--hoshi-color-1"></label>
           </div>
-        </div>
-        <div class="form-group  input--hoshi col-sm-12" data-ng-class="{ 'has-error': contactform.inputMessage.$invalid && submitted }">
-          <div class="input-wrap">
-            <textarea data-ng-model="formData.inputMessage" class="form-control input input__field input__field--hoshi" rows="4" id="inputMessage" name="inputMessage" placeholder="Mensaje" required></textarea>
-            <label class="input__label input__label--hoshi input__label--hoshi-color-1"></label>
+          <div *ngIf="submitted && f.email?.errors" class="invalid-feedback">
+              <div *ngIf="f.email?.errors.required">El email es obligatorio</div>
+              <div *ngIf="f.email?.errors.email">El email debe ser una dirección de email válida</div>
           </div>
         </div>
-        <div class="form-group col-sm-12">
+
+        <div class="form-group  input--hoshi col-sm-12" [ngClass]="{ 'has-error': mensaje?.invalid && submitted }">
+          <div class="input-wrap">
+            <textarea formControlName="mensaje" #mensaje class="form-control input input__field input__field--hoshi" rows="4"name="mensaje" placeholder="Mensaje" required></textarea>
+            <label class="input__label input__label--hoshi input__label--hoshi-color-1"></label>
+          </div>
+          <div *ngIf="submitted && f.mensaje?.errors" class="invalid-feedback">
+              <div *ngIf="f.mensaje?.errors.required">El mensaje es obligatorio</div>
+          </div>
+        </div>
+      <div class="row">
+        <div class="form-group col-sm-3">
           <div class="align-center">
-            <button type="submit" class="btn btn-default" data-ng-disabled="submitButtonDisabled">
+            <button type="submit" class="btn btn-default">
             <span class="mask"></span>
             <span>Enviar mensaje</span>
             </button>
           </div>
         </div>
+        <div *ngIf="enviandoMensaje" class="col-sm-9">
+          <div class="loader loader--style1" title="0">
+            <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+            <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+              s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
+              c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
+            <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+              C22.32,8.481,24.301,9.057,26.013,10.047z">
+              <animateTransform attributeType="xml"
+                attributeName="transform"
+                type="rotate"
+                from="0 20 20"
+                to="360 20 20"
+                dur="0.5s"
+                repeatCount="indefinite"/>
+              </path>
+            </svg>
+          </div>
+        </div>
+      </div>
       </form>
-      <!-- <p data-ng-class="result">{{ resultMessage }}</p> -->
     </div>
   </div>
 
+  <!-- Fondo Transparente -->
+  <div *ngIf="enviandoMensaje" class="fondoTransparente"></div>
+
+
   <div class="email-direct">
-    <p class="wow fadeInRight" data-wow-duration=".4s">O simplemente escríbeme a <a href="mailto:{{ email }}" target="_blank">{{ email }}</a></p>
+    <p data-wow-duration=".4s">O simplemente escríbeme a <a href="mailto:{{ emailContacto }}" target="_blank">{{ emailContacto }}</a></p>
   </div>
 </section>
 
