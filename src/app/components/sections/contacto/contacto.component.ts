@@ -15,7 +15,7 @@ export class ContactoComponent implements OnInit {
   texto:string;
   textoDefecto = "Deja tus datos aquí";
   cargada = false;
-  resultado:number = -1;
+  resultado:boolean;
   mostrarAlert = false;
 
   contactForm: FormGroup;
@@ -46,7 +46,6 @@ export class ContactoComponent implements OnInit {
 
   }
 
-
   // convenience getter for easy access to form fields
   get f() { return this.contactForm.controls; }
 
@@ -61,21 +60,27 @@ export class ContactoComponent implements OnInit {
         }
 
         this._mailService.enviarMail(this.contactForm.value).then( ()=>{
-        this.onReset(1);
+        this.onReset(true);
         }).catch( ()=>{
-        this.onReset(0);
-        });
+        this.onReset(false);
+      });
 
     }
 
-    onReset(n) {
-        this.resultado = n;
+    onReset(res) {
+        this.resultado = res;
         this.enviandoMensaje = false;
         this.mostrarAlert = true;
-
         this.submitted = false;
-        this.contactForm.reset();
-        this.texto = this.textoDefecto;
+
+        //Solo se resetea el form si la peticion ha ido bien
+        if(res){
+          this.contactForm.reset();
+          this.texto = this.textoDefecto;
+        }
+
+        let contact_sec = document.getElementById("contact_sec");
+        contact_sec.scrollIntoView();
     }
 
     ocultarAlert(){

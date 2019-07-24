@@ -1,14 +1,9 @@
-<section *ngIf="cargada" id="contact_sec"  class="col-lg-10 col-md-11 col-sm-11 center-div contact-wrap  sec-pad-top sec-pad-bottom-sm">
+<section *ngIf="cargada" id="contact_sec" #contact_sec class="col-lg-10 col-md-11 col-sm-11 center-div contact-wrap  sec-pad-top sec-pad-bottom-sm">
   <h6>Contacto</h6>
-
-  <div *ngIf="resultado == 1 && mostrarAlert" class="alert alert-success" role="alert">
-    Mensaje enviado correctamente
-    <button type="button" class="close" (click)="ocultarAlert()" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div *ngIf="resultado == 0  && mostrarAlert" class="alert alert-danger" role="alert">
-    No se ha podido enviar el mensaje
+  <!-- Alert -->
+  <div *ngIf="mostrarAlert" class="alert" [ngClass]="{ 'alert-success': resultado, 'alert-danger' : !resultado }" role="alert">
+    <span *ngIf="resultado" >Mensaje enviado correctamente</span>
+    <span *ngIf="!resultado">No se ha podido enviar el mensaje</span>
     <button type="button" class="close" (click)="ocultarAlert()" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -48,36 +43,16 @@
               <div *ngIf="f.mensaje?.errors.required">El mensaje es obligatorio</div>
           </div>
         </div>
-      <div class="row">
-        <div class="form-group col-sm-3">
+        <div class="form-group col-sm-12">
           <div class="align-center">
-            <button type="submit" class="btn btn-default">
+            <button type="submit" class="btn btn-default" [disabled]="enviandoMensaje">
             <span class="mask"></span>
-            <span>Enviar mensaje</span>
+            <span *ngIf="!enviandoMensaje">Enviar mensaje</span>
+            <span *ngIf="enviandoMensaje">Espere por favor...</span>
+            <i *ngIf="enviandoMensaje" class="fa fa-refresh fa-spin iconCargando"></i>
             </button>
           </div>
         </div>
-        <div *ngIf="enviandoMensaje" class="col-sm-9">
-          <div class="loader loader--style1" title="0">
-            <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-             width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-            <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
-              s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
-              c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
-            <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
-              C22.32,8.481,24.301,9.057,26.013,10.047z">
-              <animateTransform attributeType="xml"
-                attributeName="transform"
-                type="rotate"
-                from="0 20 20"
-                to="360 20 20"
-                dur="0.5s"
-                repeatCount="indefinite"/>
-              </path>
-            </svg>
-          </div>
-        </div>
-      </div>
       </form>
     </div>
   </div>

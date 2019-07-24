@@ -27,4 +27,9 @@ export class HeaderComponent implements OnInit {
 
   }
 
+  ir_contacto(){
+    let contact_sec = document.getElementById("contact_sec");
+    contact_sec.scrollIntoView();
+  }
+
 }
